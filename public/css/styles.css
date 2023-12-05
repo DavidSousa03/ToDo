@@ -14,8 +14,8 @@
   --bg-tarefa: #fff;
   --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
   --border-color: #e3e4f1;
-  --text-color:#494C6B;
-  --info-text-color:#9495A5;
+  --text-color: #494c6b;
+  --info-text-color: #9495a5;
 }
 
 body {
@@ -108,11 +108,23 @@ main {
   padding: 1rem 1.25rem;
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem ;
+  font-size: 0.75rem;
   color: var(--info-text-color);
 }
-.informacoes a{
+.informacoes a,
+.botoes a {
   text-decoration: none;
   color: var(--info-text-color);
-
+}
+.botoes {
+  padding-block: 1rem;
+  background: var(--bg-tarefa);
+  border-radius: 0.3125rem;
+  margin-top: 1rem;
+  max-width: 33.75rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  font-size: 0.875rem;
 }
