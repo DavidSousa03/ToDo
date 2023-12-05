@@ -48,8 +48,8 @@ app.get('/', (require, response) => {
                 completa: dado.completa === 0 ? false : true
             };
         });
+        response.render('home')
     })
-    response.render('home')
 })
 
 
