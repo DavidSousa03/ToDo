@@ -8,8 +8,11 @@
                 <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
               </div>
 
-                <button onclick="excluirTarefa">
-                    <img src="/imagens/x-icon.png" alt="ícone de X para excluir uma tarefa">
+                  <button onclick="excluirTarefa({{this.id}})">
+                    <img
+                        src="/imagens/x-icon.png"
+                        alt="ícone de 'x' para excluir uma tarefa"
+                    />
                 </button>
             </form>
         </div>
