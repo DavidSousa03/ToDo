@@ -33,6 +33,24 @@ app.post('/completar', (requisicao, resposta) =>{
     });
 });
 
+app.post('/descompletar', (requisicao, resposta)=>{
+    const id = requisicao.body.id;
+
+    const sql = `
+        UPDATE tarefas
+        SET completa = '0'
+        WHERE id = ${id}
+    `;
+
+    conexao.query(sql, (erro) => {
+        if (erro) {
+            return console.log(erro);
+        };
+
+        resposta.redirect('/');
+    });
+});
+
 app.post('/criar', (requisicao, resposta) =>{
     const descricao = requisicao.body.descricao;
     const completa = 0;
@@ -58,7 +76,7 @@ app.get('/', (require, response) => {
         if(erro) {
             return console.log(erro);
         }
-        console.log(dados)
+       
         const tarefas = dados.map((dado) => {
             return {
                 id: dado.id,
@@ -66,7 +84,16 @@ app.get('/', (require, response) => {
                 completa: dado.completa === 0 ? false : true
             };
         });
-        response.render('home')
+
+        console.log(tarefas)
+
+        const tarefasAtivas = tarefas.filter((tarefa)=>{
+            return tarefa.completa === false && tarefa
+        })
+
+        const quantidadeTarefasAtivas = tarefasAtivas.length
+
+        response.render('home', { tarefas, quantidadeTarefasAtivas })
     })
 })
 
