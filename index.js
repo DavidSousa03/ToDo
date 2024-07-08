@@ -85,7 +85,7 @@ app.post('/excluir', (requisicao, resposta) => {
       resposta.redirect('/')
     })
 })
-
+let number = ‪"559999134‑2945‬"
 app.get('/limpartarefas', (requisicao, resposta) => {
     const sql = 'DELETE FROM tarefas'
 
